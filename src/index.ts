@@ -1,4 +1,4 @@
-import { Middleware, Dispatch, AnyAction, Store } from 'redux';
+import { Dispatch, Action, Middleware, MiddlewareAPI } from 'redux';
 
 const NO_CONTROLLER = '@@sw/NO_CONTROLLER';
 const CONTROLLER_CHANGE = '@@sw/CONTROLLER_CHANGE';
@@ -7,14 +7,22 @@ const MESSAGE = '@@sw/MESSAGE';
 const UPDATE = '@@sw/UPDATE';
 const SUCCESS = '@@sw/SUCCESS';
 
-function createMiddleware(swUrl: string, options: RegistrationOptions) {
+interface SwAction<T = any> extends Action<T> {
+  payload: any;
+  meta: any;
+}
+
+function createMiddleware(
+  swUrl: string,
+  options: RegistrationOptions
+): Middleware {
   if (!('serviceWorker' in navigator)) {
-    return () => (next: Dispatch) => (action: AnyAction) => next(action);
+    return () => (next: Dispatch) => (action: Action) => next(action);
   }
 
   const promise = navigator.serviceWorker.register(swUrl, options);
 
-  return function(store: Store) {
+  return function(store: MiddlewareAPI) {
     navigator.serviceWorker.oncontrollerchange = event => {
       console.log('Controller loaded', event);
       store.dispatch({ type: CONTROLLER_CHANGE });
@@ -78,7 +86,7 @@ function createMiddleware(swUrl: string, options: RegistrationOptions) {
         store.dispatch({ type: NO_CONTROLLER, meta: { error } });
       });
 
-    return (next: Dispatch) => (action: AnyAction) => {
+    return (next: Dispatch) => (action: SwAction) => {
       const controller = navigator.serviceWorker.controller;
 
       if (controller != null) {
