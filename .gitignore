@@ -1,3 +1,9 @@
+# Custom
+dist/
+es/
+lib/
+.size-snapshot.json
+stats.html
 
 # Created by https://www.gitignore.io/api/osx,node,macos,windows,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=osx,node,macos,windows,visualstudiocode
