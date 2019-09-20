@@ -362,6 +362,11 @@
   dependencies:
     "@types/jest-diff" "*"
 
+"@types/mixpanel@^2.14.1":
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/@types/mixpanel/-/mixpanel-2.14.1.tgz#bd99d1c57d620c6fd12e614e52019416d8104e16"
+  integrity sha512-cYiEKFI8PyJKIWl1Jax4VDYgX3/iDpKu+OcubqRT5RRSR7ZVTatNV9UKT6S2kgk4929DBbPPg6ejkLZqWVTcSQ==
+
 "@types/node@*", "@types/node@^12.7.4":
   version "12.7.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.5.tgz#e19436e7f8e9b4601005d73673b6dc4784ffcc2f"
@@ -3707,6 +3712,11 @@ mixin-deep@^1.2.0:
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
+
+mixpanel-browser@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/mixpanel-browser/-/mixpanel-browser-2.29.1.tgz#0e5bda9d43aab5fb74c3bfc527651c4a90fc675d"
+  integrity sha512-RSBqVBznOkKBz3MkCXRrkTEEXqoNNYAbASpjaCxvhpT5pykWhjh7JY54fAmOvtG9XNL3GHYA6XiB7Yos4ngNYQ==
 
 mkdirp@0.x, mkdirp@^0.5.0, mkdirp@^0.5.1:
   version "0.5.1"
