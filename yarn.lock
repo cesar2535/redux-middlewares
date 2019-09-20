@@ -362,10 +362,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/mixpanel@^2.14.1":
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/@types/mixpanel/-/mixpanel-2.14.1.tgz#bd99d1c57d620c6fd12e614e52019416d8104e16"
-  integrity sha512-cYiEKFI8PyJKIWl1Jax4VDYgX3/iDpKu+OcubqRT5RRSR7ZVTatNV9UKT6S2kgk4929DBbPPg6ejkLZqWVTcSQ==
+"@types/mixpanel-browser@^2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@types/mixpanel-browser/-/mixpanel-browser-2.23.1.tgz#90bff025e6e7738389dc5656a750baa9a2399343"
+  integrity sha512-wt6ZkMWxWSpGcIK1p3Mvu5XwqmQw7U1gE+rL/2ZilWIG4M5Lyy11CNNE2iA6cirbxN3Qe7LoACiyybYRuAbLRw==
 
 "@types/node@*", "@types/node@^12.7.4":
   version "12.7.5"
