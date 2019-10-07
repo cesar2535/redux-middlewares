@@ -1,4 +1,5 @@
 import { Dispatch, Action, Middleware, MiddlewareAPI } from 'redux'
+import createReducer from './utils/createReducer'
 
 const NO_CONTROLLER = '@@sw/NO_CONTROLLER'
 const CONTROLLER_CHANGE = '@@sw/CONTROLLER_CHANGE'
@@ -99,5 +100,18 @@ function createMiddleware(
     }
   }
 }
+
+const initialState = {
+  status: 'waiting',
+  new: false
+}
+
+const reducer = createReducer(initialState)({
+  [NO_CONTROLLER]: state => ({ ...state, status: 'unavailable' }),
+  [CONTROLLER_ATTACHED]: state => ({ ...state, status: 'available' }),
+  [UPDATE]: state => ({ ...state, new: true })
+})
+
+export { reducer }
 
 export default createMiddleware
