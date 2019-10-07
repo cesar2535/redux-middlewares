@@ -103,13 +103,15 @@ function createMiddleware(
 
 const initialState = {
   status: 'waiting',
-  new: false
+  new: false,
+  changed: false
 }
 
 const reducer = createReducer(initialState)({
   [NO_CONTROLLER]: state => ({ ...state, status: 'unavailable' }),
   [CONTROLLER_ATTACHED]: state => ({ ...state, status: 'available' }),
-  [UPDATE]: state => ({ ...state, new: true })
+  [UPDATE]: state => ({ ...state, new: true }),
+  [CONTROLLER_CHANGE]: state => ({ ...state, changed: true })
 })
 
 export { reducer }
