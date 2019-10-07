@@ -101,15 +101,21 @@ function createMiddleware(
   }
 }
 
+enum Status {
+  Waiting = 'waiting',
+  Unavailable = 'unavailable',
+  Available = 'available'
+}
+
 const initialState = {
-  status: 'waiting',
+  status: Status.Waiting,
   new: false,
   changed: false
 }
 
 const reducer = createReducer(initialState)({
-  [NO_CONTROLLER]: state => ({ ...state, status: 'unavailable' }),
-  [CONTROLLER_ATTACHED]: state => ({ ...state, status: 'available' }),
+  [NO_CONTROLLER]: state => ({ ...state, status: Status.Unavailable }),
+  [CONTROLLER_ATTACHED]: state => ({ ...state, status: Status.Available }),
   [UPDATE]: state => ({ ...state, new: true }),
   [CONTROLLER_CHANGE]: state => ({ ...state, changed: true })
 })
